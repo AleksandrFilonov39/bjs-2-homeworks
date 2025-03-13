@@ -1,5 +1,5 @@
 class AlarmClock {
-    constructor (alarmCollection, intervalId) {
+    constructor () {
         this.alarmCollection = [];
         this.intervalId = null;
     }
@@ -8,12 +8,12 @@ class AlarmClock {
         if(time === null || callBack === undefined) {
             throw new Error ("Отсутствуют обязательные аргументы")
         }
-         this.alarmCollection.forEach((el) => {
-            if(el.time === time){
-                console.warn('Уже присутствует звонок на это же время')
-            }
-         })
-            this.alarmCollection.push({callback: callBack, time: time, canCall: true})
+
+        if(this.alarmCollection.some((element) => element.time === time)) {
+            console.warn('Уже присутствует звонок на это же время')
+        }
+
+        this.alarmCollection.push({callback: callBack, time: time, canCall: true})
         
     }
 
@@ -59,3 +59,10 @@ class AlarmClock {
 
 }
 
+// let clock = new AlarmClock ();
+// clock.addClock('17:26', () => console.log('hi'))
+// clock.start();
+// console.log(clock);
+// setTimeout(() => console.log(clock), 7000);
+// setTimeout(() => clock.stop(), 10000);
+// setTimeout(() => console.log(clock), 12000);
