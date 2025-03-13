@@ -59,10 +59,3 @@ class AlarmClock {
 
 }
 
-// let clock = new AlarmClock ();
-// clock.addClock('17:26', () => console.log('hi'))
-// clock.start();
-// console.log(clock);
-// setTimeout(() => console.log(clock), 7000);
-// setTimeout(() => clock.stop(), 10000);
-// setTimeout(() => console.log(clock), 12000);
